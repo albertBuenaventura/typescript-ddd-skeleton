@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+      "allowUnreachableCode": false,
+      "baseUrl": ".",
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "noEmitOnError": true,
+      "noFallthroughCasesInSwitch": true,
+      "outDir": "./dist",
+      "sourceMap": true,
+      "strict": true,
+      "strictPropertyInitialization": false,
+      "target": "es6"
+    },
+    "include": ["src/**/*"],
+    "exclude": [
+      "node_modules",
+      "dist"
+    ]
+  }
+  
