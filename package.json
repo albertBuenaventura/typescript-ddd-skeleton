@@ -30,6 +30,7 @@
     "winston": "^3.2.1"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.6",
     "@typescript-eslint/eslint-plugin": "^2.7.0",
     "@typescript-eslint/parser": "^2.7.0",
     "eslint": "~6.6.0"
