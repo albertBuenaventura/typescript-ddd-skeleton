@@ -9,7 +9,6 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 
-
 app.listen(port, () => {
     console.log(`App is running on port ${port}`)
 })
