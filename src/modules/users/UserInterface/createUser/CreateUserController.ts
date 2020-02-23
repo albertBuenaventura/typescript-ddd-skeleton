@@ -1,13 +1,13 @@
-import { CreateUserService } from './CreateUserService'
+import ICreateUserService from '../../contracts/ICreateUserService'
 import { CreateUserDto } from './CreateUserDto'
 
 import * as express from 'express'
 
 export class CreateUserController {
     
-    private readonly service: CreateUserService
+    private readonly service: ICreateUserService
 
-    constructor(service:CreateUserService) { //TODO: inject abstraction
+    constructor(service:ICreateUserService) { //TODO: inject abstraction
         this.service = service
     }
 
