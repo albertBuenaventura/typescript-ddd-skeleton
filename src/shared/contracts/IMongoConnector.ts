@@ -1,3 +1,6 @@
+import { Db } from 'mongodb'
+
 export default interface IMongoConnector {
-    initializeDatabase(): Promise<void>;
+    initializeDatabase(): Promise<void>
+    getDatabaseConnection(): Db 
 }
