@@ -1,1 +1,1 @@
-import './shared/Infrastructure/http/app'
+import './shared/Infrastructure/http/App'
