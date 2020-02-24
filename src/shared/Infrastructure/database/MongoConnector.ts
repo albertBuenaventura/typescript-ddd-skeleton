@@ -1,11 +1,9 @@
 import { MongoClient, MongoClientOptions, Db } from 'mongodb'
-import { WinstonLogger } from '../logger/WinstonLogger'
 import { Logger } from 'winston'
 
 import IMongoConnector from '../../contracts/IMongoConnector'
 
-export class SingletonMongoHelper implements IMongoConnector {
-    private static instance: IMongoConnector;
+export class MongoConnector implements IMongoConnector {
     private readonly mongoIp:number|string
     private readonly port:number
     private readonly databaseName:string
@@ -14,19 +12,12 @@ export class SingletonMongoHelper implements IMongoConnector {
     private dbClient:MongoClient
     private dbConnection:Db
 
-    private constructor() {
-        this.mongoIp = process.env.mongoIp as string
-        this.port = (process.env.mongoPort as unknown) as number
-        this.databaseName = process.env.databaseName as string
-        this.logger = new WinstonLogger().getLogger();
+    constructor(mongoIp:string|number, mongoPort:number, databaseName:string, logger:Logger) {
+        this.mongoIp = mongoIp
+        this.port = mongoPort
+        this.databaseName = databaseName
+        this.logger = logger;
         this.mongoUrl = `mongodb://${this.mongoIp}:port${this.port}/${this.databaseName}`
-    }
-
-    static getInstance() : IMongoConnector {
-        if (!SingletonMongoHelper.instance) {
-            SingletonMongoHelper.instance = new SingletonMongoHelper();
-        }
-        return SingletonMongoHelper.instance;
     }
 
     async initializeDatabase() : Promise<void> {

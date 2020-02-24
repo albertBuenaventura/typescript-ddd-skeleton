@@ -2,18 +2,26 @@
 import { CreateUserService } from "./CreateUserService";
 import { CreateUserController } from "./CreateUserController";
 import { UserRepository } from "./../../Infrastructure/Repository/UserRepository";
-import { SingletonMongoHelper } from "../../../../shared/Infrastructure/database/SingletonMongoHelper"
+import { Db } from "mongodb";
 
-const mongoInstance = SingletonMongoHelper.getInstance();
-const dbConnection = mongoInstance.getDatabaseConnection()
+export default class UserUseCase {
+  private readonly db:Db
+  private createUserController:CreateUserController
 
-const userRepository = new UserRepository(dbConnection)
-const createUserService = new CreateUserService(userRepository);
-const createUserController = new CreateUserController(
-    createUserService
-)
+  constructor(db:Db) {
+    this.db = db;
+    this.initUseCase()
+  }
 
-export {
-  createUserService,
-  createUserController
+  initUseCase(): void {
+    const userRepository = new UserRepository(this.db)
+    const createUserService = new CreateUserService(userRepository);
+    this.createUserController = new CreateUserController(
+      createUserService
+    )
+  }
+
+  getController(): CreateUserController {
+    return this.createUserController
+  }
 }

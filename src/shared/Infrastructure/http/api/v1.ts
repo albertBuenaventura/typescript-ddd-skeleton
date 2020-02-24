@@ -1,9 +1,25 @@
 
 import * as express from 'express'
-import { userRouter } from '../../../../modules/users/Infrastructure/Http/routes/index';
+import { Db } from 'mongodb'
+import Router from '../../../../modules/users/Infrastructure/Http/routes/index';
 
-const v1Router = express.Router();
 
-v1Router.use('/users', userRouter);
+export default class ApiV1 {
+    private readonly router:express.Router
+    private readonly db:Db;
+    
+    constructor(db:Db) {
+        this.router = express.Router();
+        this.db = db;
+        this.setRoutes()
+    }
 
-export { v1Router }
+    private setRoutes(): void {
+        const useCaseRouter = new Router(this.db).getRouter()
+        this.router.use('/users', useCaseRouter)
+    }
+
+    getRouter(): express.Router {
+        return this.router
+    }
+}
