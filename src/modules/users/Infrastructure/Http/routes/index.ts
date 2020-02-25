@@ -1,7 +1,7 @@
 import * as express from 'express'
 import { Db } from 'mongodb'
 
-import UserUseCase from '../../../UserInterface/createUser';
+import CreateUser from '../../../UserInterface/createUser';
 import { VerifyAuth as authenticate } from '../../../../../shared/Infrastructure/http/middleware/VerifyAuth';
 
 export default class Router {
@@ -15,7 +15,7 @@ export default class Router {
     }
 
     private initRoutes(): void {
-        const createUserController =  new UserUseCase(this.db).getController()
+        const createUserController =  new CreateUser(this.db).getController()
         this.router.post('/', authenticate(), (req, res) => createUserController.execute(req, res) );
         this.router.get('/me', authenticate(), (req, res) => createUserController.execute(req, res) );
     }

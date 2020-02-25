@@ -9,8 +9,8 @@ export default class ApiV1 {
     private readonly db:Db;
     
     constructor(db:Db) {
-        this.router = express.Router();
         this.db = db;
+        this.router = express.Router();
         this.setRoutes()
     }
 

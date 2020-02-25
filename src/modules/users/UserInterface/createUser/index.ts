@@ -4,7 +4,7 @@ import { CreateUserController } from "./CreateUserController";
 import { UserRepository } from "./../../Infrastructure/Repository/UserRepository";
 import { Db } from "mongodb";
 
-export default class UserUseCase {
+export default class CreateUser {
   private readonly db:Db
   private createUserController:CreateUserController
 
