@@ -8,7 +8,7 @@ import EnvironmentLoader from '../enviroment/EnvironmentLoader'
 
 (async() => {
     const logger = new WinstonLogger().getLogger();
-    const environmentLoader = new EnvironmentLoader(logger).loadEnvironmentVariables()
+    new EnvironmentLoader(logger).loadEnvironmentVariables()
 
     const app = express()
     const port = process.env.PORT || 3000

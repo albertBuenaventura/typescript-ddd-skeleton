@@ -15,7 +15,7 @@ export class CreateUserController {
         const { username, email, password } = req.body
 
         const dto: CreateUserDto = { username, email, password }
-
+        
         try {
             const user = await this.service.execute(dto)
             

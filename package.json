@@ -7,6 +7,9 @@
     "url": "https://github.com/albertBuenaventura/typescript-ddd-skeleton"
   },
   "author": "Albert C. Buenaventura",
+  "scripts": {
+    "start" : "nodemon ./src/index.ts"
+  },
   "dependencies": {
     "@types/express": "^4.17.1",
     "@types/jest": "^24.0.18",
