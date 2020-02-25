@@ -9,7 +9,7 @@ export default class EnvironmentLoader {
         this.logger = logger
     }
 
-    getEnvironmentFileName(): string {
+    private getEnvironmentFileName(): string {
         if(process.env.PRODUCTION) {
             return '.env.production'
         }
