@@ -2,14 +2,18 @@
     "root": true,
     "parser": "@typescript-eslint/parser",
     "plugins": [
-      "@typescript-eslint"
+      "@typescript-eslint",
+      "prettier"
     ],
     "extends": [
       "eslint:recommended",
       "plugin:@typescript-eslint/eslint-recommended",
-      "plugin:@typescript-eslint/recommended"
+      "plugin:@typescript-eslint/recommended",
+      "prettier"
     ],
     "rules" : {
-        "no-console": 1
+      "@typescript-eslint/interface-name-prefix": 0,
+      "no-console": 2,
+      "prettier/prettier": 2
     }
   }

@@ -1,9 +1,9 @@
-import { Db } from 'mongodb'
+import { Db } from 'mongodb';
 
 export class UserRepository {
-    private db:Db
+  private db: Db;
 
-    constructor(db:Db) {
-        this.db = db
-    }
+  constructor(db: Db) {
+    this.db = db;
+  }
 }

@@ -1,15 +1,15 @@
-import { CreateUserDto } from './CreateUserDto'
-import IUserRepository from '../../contracts/IUserRepository'
-import ICreateUserService from '../../contracts/ICreateUserService'
+import { CreateUserDto } from './CreateUserDto';
+import IUserRepository from '../../contracts/IUserRepository';
+import ICreateUserService from '../../contracts/ICreateUserService';
 
 export class CreateUserService implements ICreateUserService {
-    private userRepository:IUserRepository
+  private userRepository: IUserRepository;
 
-    constructor(userRepository:IUserRepository) {
-        this.userRepository = userRepository
-    }
+  constructor(userRepository: IUserRepository) {
+    this.userRepository = userRepository;
+  }
 
-    async execute(createUserDto:CreateUserDto) : Promise<CreateUserDto> {
-        return createUserDto 
-    }
+  async execute(createUserDto: CreateUserDto): Promise<CreateUserDto> {
+    return createUserDto;
+  }
 }

@@ -1,5 +1,5 @@
-import { Logger } from 'winston'
+import { Logger } from 'winston';
 
 export default interface IWinstonLogger {
-    getLogger(): Logger;
+  getLogger(): Logger;
 }
