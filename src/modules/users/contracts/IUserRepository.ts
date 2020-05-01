@@ -1,3 +1,3 @@
 export default interface IUserRepository {
-    getUserById(id:string): Promise<void>
+  getUserById(id: string): Promise<void>;
 }
